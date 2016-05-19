@@ -37,7 +37,9 @@ pip install beautifulsoup4 (bs4)
 ***
 #### Develop and test code locally
 see: https://github.com/cleesmith/get_html_head_title_tag (a non-hello world example)
+
 > Note: always include code like this to test locally:
+
 ```
 if __name__ == '__main__':
   event = {"url": "http://cleesmith.github.io/"}
