@@ -32,7 +32,7 @@ echo $VIRTUAL_ENV ... shows where python packages are located
 pip install requests
 pip install beautifulsoup4 (bs4)
 ```
-> For this lambda project we are using requests to fetch an URL and bs4 to extract the html head title tag from the page.
+> For this lambda project we are using **requests** to fetch an URL and **bs4** to extract the html head title tag from the page.
 
 ***
 #### Develop and test code locally
