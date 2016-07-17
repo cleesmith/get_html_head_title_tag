@@ -2,10 +2,9 @@
 
 ***
 #### July 17, 2016
-> Added code to send results to Amazon's Simple Queue Service (SQS) when a queue name is provided.
->
-> IAM role **fetch_title_role** permissions: attached **AmazonSQSFullAccess** policy
->
+1. Add code to send results to Amazon's Simple Queue Service (SQS) when a queue name is provided.
+1. Update permissions for IAM role **fetch_title_role**: attached **AmazonSQSFullAccess** policy.
+
 > This is preparation for handling a list of URL's and gathering their **title tag** values asynchronously.
 >
 > You know, async, as in really fast
