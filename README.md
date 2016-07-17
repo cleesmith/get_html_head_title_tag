@@ -11,6 +11,9 @@
 >
 > ... like in parallel, well, AWS Lambda is limited to 100 concurrent executions per region per account.
 >
+> I guess this is so you don't wake up one morning to find that you, your children, and their children
+> owe Amazon a gazillion dollars.
+>
 > See [AWS Lambda limits](http://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 
 ***
