@@ -1,4 +1,5 @@
 from __future__ import print_function
+import boto3
 import json
 import requests
 import bs4
@@ -36,11 +37,33 @@ def title(url):
   return response
 
 def lambda_handler(event, context):
+  # FIXME ensure event['url'] param is present and not blank
   page_title = title(event['url'])
   results = "url: " + event['url'] + " title: " + page_title
-  return results
+
+  # when event['queue'] is present then queue the results,
+  # otherwise just return the results:
+  aqueue = event.get('queue')
+  print('SQS queue='+aqueue)
+  if aqueue is None or len(aqueue) <= 0:
+    # pass
+    return results
+  else:
+    # FIXME use try except
+    sqs_resource = boto3.resource('sqs')
+    # this expects the queue's URL:
+    # queue = sqs_resource.Queue(aqueue)
+    # it's simpler to just use the queue name:
+    queue = sqs_resource.get_queue_by_name(QueueName=aqueue)
+    response = queue.send_message(MessageBody=results)
 
 if __name__ == '__main__':
-  event = {"url": "http://cleesmith.github.io/"}
-  pt = lambda_handler(event, 'handler')
+  event = {
+    # 'url': 'http://cleesmith.github.io/health.html',
+    'url': 'http://www.ghtctheatres.com/location/41139/Lewisburg-Cinema-8',
+    # 'queue': 'https://sqs.us-east-1.amazonaws.com/410299363594/clsq'
+    'queue': 'clsq'
+  }
+
+  pt = lambda_handler(event, 'pretend_context')
   print(pt)
