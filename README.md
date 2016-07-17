@@ -6,7 +6,8 @@
 >
 > This is preparation for handling a list of URL's and gathering their **title tag** values asynchronously.
 >
-> You know, async, as in really fast ... like in parallel, well, AWS Lambda is limited to 100 concurrent executions per region per account.
+> You know, async, as in really fast
+> ... like in parallel, well, AWS Lambda is limited to 100 concurrent executions per region per account.
 >
 > See [AWS Lambda limits](http://docs.aws.amazon.com/lambda/latest/dg/limits.html)
 
